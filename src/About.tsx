@@ -1,10 +1,13 @@
 import { Flex, Heading } from "@chakra-ui/react";
 import React from "react";
+import { Layout } from "./components/Layout";
 
 export const About = () => {
   return (
-    <Flex direction="column" minH="100vh" p={4} justifyContent="flex-start">
-      <Heading as="h1">About</Heading>
-    </Flex>
+    <Layout>
+      <Flex direction="column" justifyContent="flex-start">
+        <Heading as="h1">About</Heading>
+      </Flex>
+    </Layout>
   );
 };

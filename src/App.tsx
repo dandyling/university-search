@@ -1,6 +1,6 @@
-import { ChakraProvider, Flex, List, ListItem, theme } from "@chakra-ui/react";
+import { ChakraProvider, theme } from "@chakra-ui/react";
 import * as React from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { About } from "./About";
 import { Home } from "./Home";
 import { Newsletter } from "./Newsletter";
@@ -9,19 +9,6 @@ export const App = () => {
   return (
     <Router>
       <ChakraProvider theme={theme}>
-        <Flex as="nav">
-          <List display="flex" flexDirection="row">
-            <ListItem mr={4}>
-              <Link to="/">Home</Link>
-            </ListItem>
-            <ListItem mr={4}>
-              <Link to="/newsletter">Newsletter</Link>
-            </ListItem>
-            <ListItem>
-              <Link to="/about">About</Link>
-            </ListItem>
-          </List>
-        </Flex>
         <Switch>
           <Route path="/newsletter">
             <Newsletter />
