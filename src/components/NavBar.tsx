@@ -1,9 +1,26 @@
-import { Flex, Link, List, ListItem } from "@chakra-ui/react";
+import { Button, Flex, Link, List, ListItem, useToast } from "@chakra-ui/react";
 import React from "react";
 import { Link as RLink } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { userState } from "../App";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import firebase from "firebase/app";
 
 export const NavBar = (props: any) => {
+  const user = useRecoilValue(userState);
+  const toast = useToast();
+
+  const handleSignOut = async () => {
+    await firebase.auth().signOut();
+    toast({
+      title: "Signed out",
+      description: `You have signed out successfully`,
+      status: "info",
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+
   return (
     <Flex
       as="header"
@@ -30,7 +47,19 @@ export const NavBar = (props: any) => {
           </ListItem>
         </List>
       </Flex>
-      <ColorModeSwitcher />
+      <Flex>
+        {user && (
+          <Button variant="ghost" onClick={handleSignOut}>
+            Sign out
+          </Button>
+        )}
+        {!user && (
+          <Button as={RLink} to="/signin" variant="ghost">
+            Sign in
+          </Button>
+        )}
+        <ColorModeSwitcher />
+      </Flex>
     </Flex>
   );
 };
