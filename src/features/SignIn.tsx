@@ -25,16 +25,12 @@ const SignIn = (props: ReactRouterProps) => {
         title: "Email sent succesfully",
         description: `Please check your email ${email} and click on the link to sign in`,
         status: "success",
-        duration: 3000,
-        isClosable: true,
       });
     } catch (error) {
       toast({
         title: "Signup with email failed",
         description: `${error.code} - ${error.message}`,
         status: "error",
-        duration: 3000,
-        isClosable: true,
       });
     }
   };

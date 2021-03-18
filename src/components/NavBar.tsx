@@ -16,8 +16,6 @@ export const NavBar = (props: any) => {
       title: "Signed out",
       description: `You have signed out successfully`,
       status: "info",
-      duration: 3000,
-      isClosable: true,
     });
   };
 

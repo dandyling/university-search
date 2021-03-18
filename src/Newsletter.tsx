@@ -14,16 +14,12 @@ export const Newsletter = () => {
         title: "Suscribe successful",
         description: `You are successfully suscribed to our newsletter!`,
         status: "success",
-        duration: 3000,
-        isClosable: true,
       });
     } catch (error) {
       toast({
         title: "Suscribe unsuccessful",
         description: `${error.code}: ${error.message}`,
         status: "error",
-        duration: 3000,
-        isClosable: true,
       });
     }
   };
