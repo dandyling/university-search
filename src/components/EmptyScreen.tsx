@@ -8,7 +8,7 @@ interface Props {
 export const EmptyScreen = (props: Props) => {
   const { message } = props;
   return (
-    <Heading as="h2" size="lg">
+    <Heading p={4} as="h2" size="lg">
       {message}
     </Heading>
   );

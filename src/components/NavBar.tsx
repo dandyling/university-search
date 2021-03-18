@@ -26,25 +26,49 @@ export const NavBar = (props: any) => {
       alignItems="center"
       {...props}
     >
-      <Flex as="nav">
+      <Flex as="nav" alignItems="center">
         <List display="flex" flexDirection="row">
           <ListItem mr={4}>
-            <Link fontSize="lg" as={RLink} to="/">
+            <Link
+              _active={{ textDecoration: "none" }}
+              _hover={{ textDecoration: "none" }}
+              fontSize="lg"
+              as={RLink}
+              to="/"
+            >
               Home
             </Link>
           </ListItem>
           <ListItem mr={4}>
-            <Link fontSize="lg" as={RLink} to="/newsletter">
+            <Link
+              _active={{ textDecoration: "none" }}
+              _hover={{ textDecoration: "none" }}
+              fontSize="lg"
+              as={RLink}
+              to="/newsletter"
+            >
               Newsletter
             </Link>
           </ListItem>
           <ListItem mr={4}>
-            <Link fontSize="lg" as={RLink} to="/favorites">
+            <Link
+              _active={{ textDecoration: "none" }}
+              _hover={{ textDecoration: "none" }}
+              fontSize="lg"
+              as={RLink}
+              to="/favorites"
+            >
               Favorites
             </Link>
           </ListItem>
           <ListItem>
-            <Link fontSize="lg" as={RLink} to="/about">
+            <Link
+              _active={{ textDecoration: "none" }}
+              _hover={{ textDecoration: "none" }}
+              fontSize="lg"
+              as={RLink}
+              to="/about"
+            >
               About
             </Link>
           </ListItem>

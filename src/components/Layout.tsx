@@ -15,9 +15,10 @@ export const Layout = (props: Props) => {
       minH="100vh"
       maxH="100vh"
       direction="column"
+      backgroundColor="gray.50"
     >
       <NavBar p={4} />
-      <Box p={4} flex={1} overflowY="scroll">
+      <Box flex={1} overflowY="scroll">
         {children}
       </Box>
     </Flex>

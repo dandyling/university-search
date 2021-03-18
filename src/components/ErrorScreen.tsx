@@ -8,7 +8,7 @@ interface Props {
 export const ErrorScreen = (props: Props) => {
   const { message } = props;
   return (
-    <Box>
+    <Box p={4}>
       <Heading as="h2" color="red">
         Error: {message}
       </Heading>

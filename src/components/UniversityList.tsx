@@ -10,7 +10,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React from "react";
-import { FaPlus } from "react-icons/fa";
+import { FaExternalLinkAlt, FaPlus } from "react-icons/fa";
 import { useRecoilValue } from "recoil";
 import { db } from "..";
 import { University, userState } from "../App";
@@ -71,27 +71,61 @@ export const UniversityList = (props: Props & ReactRouterProps) => {
 
   return (
     <Flex direction="column" flex={1}>
-      <Heading size="lg" as="h2">
-        {data.length} results
+      <Heading
+        color="gray"
+        alignSelf="flex-end"
+        ml={4}
+        mr={2}
+        pb={0}
+        size="sm"
+        as="h2"
+      >
+        ({data.length} results)
       </Heading>
       <Box>
         <List>
           {data.map((d, i) => {
             const state = d["state-province"] ? `, ${d["state-province"]}` : "";
             return (
-              <ListItem key={`${i}-${d.name}`} py={4}>
-                <Flex justifyContent="space-between" alignItems="center">
+              <ListItem key={`${i}-${d.name}`} py={1}>
+                <Flex
+                  backgroundColor="white"
+                  borderRadius={4}
+                  justifyContent="space-between"
+                  alignItems="center"
+                  p={4}
+                  boxShadow="md"
+                >
                   <Flex direction="column">
                     <Heading
                       as="h3"
-                      size="md"
+                      size="sm"
+                      fontWeight={500}
                     >{`${d.name} - ${d.country}${state}`}</Heading>
-                    <List display="flex" flexDirection="column">
+                    <List
+                      ml={4}
+                      mt={4}
+                      mb={2}
+                      display="flex"
+                      flexDirection="column"
+                    >
                       {d.domains.map((domain, j) => (
-                        <ListItem key={`${j}-${domain}`}>
-                          <Link as="a" href={`http://${domain}`} isExternal>
+                        <ListItem alignItems="center" key={`${j}-${domain}`}>
+                          <Link
+                            as="a"
+                            color="blue"
+                            textDecoration="underline"
+                            href={`http://${domain}`}
+                            isExternal
+                          >
                             {domain}
                           </Link>
+                          <Icon
+                            fontSize="small"
+                            ml={2}
+                            color="blue"
+                            as={FaExternalLinkAlt}
+                          />
                         </ListItem>
                       ))}
                     </List>

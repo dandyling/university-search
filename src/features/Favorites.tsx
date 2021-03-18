@@ -24,7 +24,9 @@ export const Favorites = () => {
   return (
     <Layout>
       <Flex direction="column" justifyContent="flex-start">
-        <Heading as="h1">Favorites</Heading>
+        <Heading px={4} fontWeight={600} as="h1">
+          Favorites
+        </Heading>
         <UniversityList data={data} />
       </Flex>
     </Layout>

@@ -26,11 +26,11 @@ export const Newsletter = () => {
 
   return (
     <Layout>
-      <Flex direction="column" justifyContent="flex-start">
-        <Heading pb={4} as="h1">
+      <Flex p={4} direction="column" justifyContent="flex-start">
+        <Heading fontWeight="600" pb={4} as="h1">
           Newsletter
         </Heading>
-        <Heading pb={4} as="h2" size="md">
+        <Heading pb={4} as="h2" fontWeight={500} size="sm">
           Suscribe to our newsletter by entering your email below and click
           submit!
         </Heading>
@@ -38,6 +38,7 @@ export const Newsletter = () => {
           mb={4}
           type="email"
           value={email}
+          placeholder="Email"
           onChange={(e) => setEmail(e.currentTarget.value)}
         />
         <Button onClick={handleSubmit}>Submit</Button>
