@@ -40,6 +40,11 @@ export const NavBar = (props: any) => {
               Newsletter
             </Link>
           </ListItem>
+          <ListItem mr={4}>
+            <Link fontSize="lg" as={RLink} to="/favorites">
+              Favorites
+            </Link>
+          </ListItem>
           <ListItem>
             <Link fontSize="lg" as={RLink} to="/about">
               About

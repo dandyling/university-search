@@ -4,6 +4,8 @@ import * as React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { atom, useSetRecoilState } from "recoil";
 import { About } from "./About";
+import { Favorites } from "./features/Favorites";
+import ProtectedRoute from "./features/ProtectedRoute";
 import SignIn from "./features/SignIn";
 import SignInRedirect from "./features/SignInRedirect";
 import Home from "./Home";
@@ -36,6 +38,9 @@ export const App = () => {
           <Route path="/signin-redirect">
             <SignInRedirect />
           </Route>
+          <ProtectedRoute path="/favorites">
+            <Favorites />
+          </ProtectedRoute>
           <Route path="/">
             <Home />
           </Route>
