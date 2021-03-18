@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import * as serviceWorker from "./serviceWorker";
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore";
 import { firebaseConfig } from "./config";
 import { RecoilRoot } from "recoil";
 
@@ -30,3 +31,5 @@ serviceWorker.unregister();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+export const db = firebase.firestore();
