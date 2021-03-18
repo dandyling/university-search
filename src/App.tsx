@@ -6,7 +6,7 @@ import { atom, useSetRecoilState } from "recoil";
 import { About } from "./About";
 import SignIn from "./features/SignIn";
 import SignInRedirect from "./features/SignInRedirect";
-import { Home } from "./Home";
+import Home from "./Home";
 import { Newsletter } from "./Newsletter";
 
 export const App = () => {
