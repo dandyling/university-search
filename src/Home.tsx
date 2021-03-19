@@ -7,7 +7,7 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { withRouter } from "react-router";
 import useSWR from "swr";
@@ -18,16 +18,23 @@ import { ErrorScreen } from "./components/ErrorScreen";
 import { Layout } from "./components/Layout";
 import { UniversityList } from "./components/UniversityList";
 import { ReactRouterProps } from "./features/SignInRedirect";
+import debounce from "lodash.debounce";
 
 const Home = (props: ReactRouterProps) => {
-  const [name, setName] = useState("");
-  const apiPath = `http://universities.hipolabs.com/search?name=${name}`;
-  const shouldFetch = name.length > 1;
+  const [name, setName] = useState("malaysia");
+  const [search, setSearch] = useState("malaysia");
+  const apiPath = `http://universities.hipolabs.com/search?name=${search}`;
+  const shouldFetch = search.length > 4;
   const { data, error } = useSWR<University[]>(
     shouldFetch ? apiPath : null,
     fetcher
   );
   const isLoading = !data && !error && shouldFetch;
+
+  const debouncedSearch = useCallback(
+    debounce((nextValue: string) => setSearch(nextValue), 1000),
+    []
+  );
 
   return (
     <Layout>
@@ -45,7 +52,10 @@ const Home = (props: ReactRouterProps) => {
               backgroundColor="white"
               boxShadow="md"
               value={name}
-              onChange={(e) => setName(e.currentTarget.value)}
+              onChange={(e) => {
+                setName(e.currentTarget.value);
+                debouncedSearch(e.currentTarget.value);
+              }}
               placeholder="Search here"
             />
             <InputRightElement
@@ -64,7 +74,7 @@ const Home = (props: ReactRouterProps) => {
         )}
         {data && data.length === 0 && (
           <EmptyScreen
-            message={` Couldn't find any university with the name ${name}`}
+            message={` Couldn't find any university with the name ${search}`}
           />
         )}
         {error && <ErrorScreen message={error.message} />}
