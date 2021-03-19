@@ -17,7 +17,7 @@ export const Layout = (props: Props) => {
       direction="column"
       backgroundColor="gray.50"
     >
-      <NavBar p={4} />
+      <NavBar />
       <Box flex={1} overflowY="scroll">
         {children}
       </Box>
