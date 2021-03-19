@@ -83,12 +83,18 @@ export const UniversityList = (props: Props & ReactRouterProps) => {
         ({data.length} results)
       </Heading>
       <Box>
-        <List>
+        <List
+          display="grid"
+          gridTemplateColumns={{ base: "repeat(1fr)", md: "repeat(2, 1fr)" }}
+          gridAutoRows="auto"
+        >
           {data.map((d, i) => {
             const state = d["state-province"] ? `, ${d["state-province"]}` : "";
             return (
               <ListItem key={`${i}-${d.name}`} py={1}>
                 <Flex
+                  minH={140}
+                  maxH={140}
                   backgroundColor="white"
                   borderRadius={4}
                   justifyContent="space-between"
