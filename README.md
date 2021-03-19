@@ -1,6 +1,6 @@
 # University Search
 
-This is a website that search for the universities in the world using the API [here](http://universities.hipolabs.com)
+This is a website that search for the universities in the world using [this API](http://universities.hipolabs.com)
 
 ## To install and develop
 
